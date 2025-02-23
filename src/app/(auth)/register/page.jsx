@@ -37,11 +37,7 @@ const Register = () => {
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
 
-      const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-
-      await refreshData();
-      router.replace("/");
     } catch (error) {
       console.log(error.message);
       setError(error.message);
