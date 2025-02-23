@@ -3,6 +3,7 @@ import { getSession } from "./services/authService";
 
 export async function middleware(req) {
   const { user } = await getSession();
+  console.log({ user });
   const { pathname, searchParams } = req.nextUrl;
 
   const redirectUrl = searchParams.get("redirect") || "/";
