@@ -28,6 +28,7 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await res.json();
       if (!res.ok) throw new Error(data.error);
     } catch (error) {
       console.log(error.message);
