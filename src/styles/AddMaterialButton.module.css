@@ -1,0 +1,22 @@
+.addContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 200px;
+  cursor: pointer;
+  border: 1px dashed var(--primary);
+  border-radius: 32px;
+  transition-duration: 200ms;
+}
+
+.addContainer:hover {
+  background-color: var(--primary-light);
+}
+
+.addContainer span {
+  font-size: 2rem;
+}

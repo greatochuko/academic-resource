@@ -1,0 +1,40 @@
+.material {
+  padding: 1.5rem 1rem;
+  aspect-ratio: 1.2;
+  font-size: 1rem;
+  font-weight: 500;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid #c5c4c4;
+  gap: 24px;
+  color: white;
+  transition-duration: 200ms;
+}
+
+.material > p {
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.material:hover {
+  background-color: var(--primary-hover);
+}
+
+@media screen and (min-width: 640px) {
+  .material {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .material {
+    padding: 2rem;
+  }
+}

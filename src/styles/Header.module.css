@@ -1,0 +1,43 @@
+.logo {
+  color: var(--primary);
+  font-size: max(1.2rem, min(2rem, 5vw));
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 5%;
+  gap: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.authLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.authLinks > a {
+  padding: 6px 12px;
+  font-size: 14px;
+  display: block;
+  background-color: white;
+  border: solid 1px var(--primary);
+  color: var(--primary);
+  transition-duration: 200ms;
+  border-radius: 6px;
+}
+
+.authLinks > a:hover {
+  background-color: var(--primary-light);
+}
+
+.authLinks > a.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.authLinks > a.active:hover {
+  background-color: var(--primary-hover);
+  color: white;
+}

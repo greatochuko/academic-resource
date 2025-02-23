@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border: solid 1px #eee;
+  box-shadow: 0 3px 6px 2px #eee;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.formContainer > h1 {
+  font-weight: 600;
+}
+
+.formContainer > p {
+  color: #666;
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.formControl {
+  flex: 1;
+}
+
+.formControl > input {
+  padding: 12px 16px;
+  border: 1px solid #c5c4c4;
+  border-radius: 8px;
+  width: 100%;
+  transition-duration: 200ms;
+  outline-offset: 2px;
+  outline: solid 2px transparent;
+}
+
+.formControl input:focus-visible {
+  outline-color: var(--primary);
+}
+
+.button {
+  padding: 12px 16px;
+  background: var(--primary);
+  transition-duration: 200ms;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #f1f1f2;
+  outline-offset: 2px;
+  outline: solid 2px transparent;
+}
+
+.button:focus-visible {
+  outline-color: var(--primary);
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.button:disabled {
+  background-color: var(--primary-disabled);
+  cursor: not-allowed;
+}
+
+.form p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.form p a {
+  color: var(--primary);
+  outline-offset: 2px;
+}
+
+.form p a:hover {
+  text-decoration: underline;
+}
+
+.form p a:focus-visible {
+  outline-color: var(--primary);
+}
+
+form p.error {
+  font-size: 14px;
+  color: #f43f5e;
+}

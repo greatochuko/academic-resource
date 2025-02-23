@@ -1,0 +1,70 @@
+.logoutButton {
+  color: white;
+  padding: 6px 12px;
+  border: solid 1px var(--rose-100);
+  border-radius: 6px;
+  background-color: var(--rose-100);
+  cursor: pointer;
+  transition-duration: 200ms;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logoutButton:hover {
+  background-color: var(--rose-200);
+}
+
+.logoutButton:disabled {
+  cursor: not-allowed;
+  background-color: var(--rose-disabled);
+  border: solid 1px var(--rose-disabled);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalActions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: end;
+}
+
+.cancelButton {
+  background: #eee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 200ms;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.cancelButton:hover {
+  background: #ddd;
+}
