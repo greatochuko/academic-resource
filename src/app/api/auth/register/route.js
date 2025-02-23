@@ -3,12 +3,12 @@ import connectDB from "@/utils/db";
 import Student from "@/models/Student";
 import { cookies } from "next/headers";
 
-export const POST = async (request) => {
+export async function POST(req) {
   try {
     const { searchParams } = req.nextUrl;
     const redirectUrl = searchParams.get("redirect") || "/";
 
-    const { email, password, firstName, lastName } = await request.json();
+    const { email, password, firstName, lastName } = await req.json();
 
     await connectDB();
 
@@ -47,4 +47,4 @@ export const POST = async (request) => {
       { status: 500 }
     );
   }
-};
+}
