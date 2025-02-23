@@ -9,6 +9,7 @@ export async function getSession() {
     });
 
     const data = await res.json();
+    console.log({ data });
     if (!res.ok) throw new Error(data.error);
 
     return { error: null, user: data.user };

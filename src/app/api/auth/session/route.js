@@ -28,6 +28,8 @@ export async function GET(request) {
       );
     }
 
+    console.log(user);
+
     return NextResponse.json(
       { user },
       {
