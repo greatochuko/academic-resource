@@ -26,7 +26,7 @@ export default function AddMaterialPage({ closeModal }) {
       });
 
       res.status === 201 &&
-        router.push("/dashboard?success=material has been created");
+        router.push("/admin?success=material has been created");
     } catch (error) {
       setErr(true);
       console.log(error);

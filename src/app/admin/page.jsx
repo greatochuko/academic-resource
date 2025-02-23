@@ -5,7 +5,7 @@ import AddMaterialButton from "@/components/AddMaterialButton";
 
 const materials = [];
 
-export default function DashboardPage() {
+export default function AdminDashboardPage() {
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>ADMIN DASHBOARD</h1>
@@ -19,7 +19,7 @@ export default function DashboardPage() {
               <div className={styles.level}>Level: {item.level}</div>
               <div className={styles.type}>type: {item.typeofFile}</div>
               <div className={styles.listItemAction}>
-                <Link href="/dashboard/edit">
+                <Link href="/admin/edit">
                   <button className={styles.editButton}>Edit</button>
                 </Link>
                 <button className={styles.deleteButton}>Delete</button>

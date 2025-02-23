@@ -16,17 +16,7 @@ export default function Header({ user }) {
       </h1>
       <div className={styles.authLinks}>
         {user ? (
-          <>
-            <Link
-              href="/dashboard"
-              className={[pathname === "/dashboard" ? styles.active : ""].join(
-                " "
-              )}
-            >
-              Dashboard
-            </Link>
-            <LogoutButton />
-          </>
+          <LogoutButton />
         ) : (
           <>
             <Link

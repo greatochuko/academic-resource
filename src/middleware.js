@@ -10,16 +10,14 @@ export async function middleware(req) {
 
   const authRoutes = ["/login", "/register"];
   const isAuthRoute = authRoutes.includes(pathname);
-  const isDashboardRoute = pathname.startsWith("/dashboard");
 
   if (user && isAuthRoute) {
     return NextResponse.redirect(new URL(redirectUrl, req.url));
   }
 
-  if (!user && isDashboardRoute) {
-    return NextResponse.redirect(
-      new URL(`/login?redirect=${pathname}`, req.url)
-    );
+  if (!user && !isAuthRoute) {
+    const urlPath = pathname === "/" ? "/login" : `/login?redirect=${pathname}`;
+    return NextResponse.redirect(new URL(urlPath, req.url));
   }
 
   return NextResponse.next();
