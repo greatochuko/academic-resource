@@ -9,11 +9,11 @@ export async function getSession() {
     });
 
     const data = await res.json();
-    console.log({ data });
     if (!res.ok) throw new Error(data.error);
 
     return { error: null, user: data.user };
   } catch (error) {
+    console.log("Error getting session: ", error.message);
     return { error: error.message, user: null };
   }
 }

@@ -5,8 +5,9 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   try {
     const userId = request.headers.get("Authorization")?.split(" ")[1];
+    console.log({ userId });
+
     if (!userId || userId === "undefined") {
-      console.log("No user");
       return NextResponse.json(
         { error: "Invalid Token" },
         {
@@ -19,7 +20,6 @@ export async function GET(request) {
     const user = await Student.findById(userId);
 
     if (!user) {
-      console.log("No user");
       return NextResponse.json(
         { error: "Unauthorized" },
         {
@@ -28,8 +28,6 @@ export async function GET(request) {
       );
     }
 
-    console.log(user);
-
     return NextResponse.json(
       { user },
       {
@@ -37,7 +35,6 @@ export async function GET(request) {
       }
     );
   } catch (error) {
-    console.log("Error getting session: ", error.message);
     return NextResponse.json(
       { error: error.message },
       {
