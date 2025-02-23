@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "@/styles/LogoutButton.module.css";
 import { useRouter } from "next/navigation";
+import { refreshData } from "@/actions/authActions";
 
 export default function LogoutButton() {
   const [open, setOpen] = useState(false);
@@ -13,9 +14,9 @@ export default function LogoutButton() {
     setLoading(true);
     try {
       const res = await fetch("/api/auth/logout");
-      if (res.ok) {
-        router.push("/login");
-      }
+      await refreshData();
+      router.push("/login");
+      setOpen(false);
     } catch (error) {
       console.log(error.message);
     }
@@ -28,8 +29,8 @@ export default function LogoutButton() {
         Logout
       </button>
       {open && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modal}>
+        <div className={styles.modalOverlay} onClick={() => setOpen(false)}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <h2>Confirm Logout</h2>
             <p>Are you sure you want to log out?</p>
             <div className={styles.modalActions}>

@@ -3,13 +3,19 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import { refreshData } from "@/actions/authActions";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const redirectUrl = searchParams.get("redirect") || "/";
 
   const cannotSubmit = loading || !email.trim() || !password.trim();
 
@@ -30,6 +36,9 @@ const Login = () => {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+
+      await refreshData();
+      router.replace(redirectUrl);
     } catch (error) {
       console.log(error.message);
       setError(error.message);

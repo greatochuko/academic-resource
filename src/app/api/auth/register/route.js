@@ -5,9 +5,6 @@ import { cookies } from "next/headers";
 
 export async function POST(req) {
   try {
-    const { searchParams } = req.nextUrl;
-    const redirectUrl = searchParams.get("redirect") || "/";
-
     const { email, password, firstName, lastName } = await req.json();
 
     await connectDB();
@@ -39,7 +36,10 @@ export async function POST(req) {
       maxAge: 60 * 60 * 24 * 7,
     });
 
-    return NextResponse.redirect(new URL(redirectUrl, req.url));
+    return NextResponse.json(
+      { message: "User created successfully" },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error creating user:", error);
     return NextResponse.json(

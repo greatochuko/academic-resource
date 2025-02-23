@@ -16,7 +16,13 @@ export async function GET(request) {
     await connectDB();
     const user = await Student.findById(userId);
 
-    if (!user) throw new Error("Unauthorized");
+    if (!user)
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        {
+          status: 401,
+        }
+      );
 
     return NextResponse.json(
       { user },

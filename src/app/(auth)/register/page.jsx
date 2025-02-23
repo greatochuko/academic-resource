@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { refreshData } from "@/actions/authActions";
 
 const Register = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,6 +15,9 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const redirectUrl = searchParams.get("redirect") || "/";
 
   const cannotSubmit =
     loading ||
@@ -39,11 +43,14 @@ const Register = () => {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+
+      await refreshData();
+      router.replace(redirectUrl);
     } catch (error) {
       console.log(error.message);
       setError(error.message);
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
