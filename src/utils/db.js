@@ -9,7 +9,7 @@ const connectDB = async () => {
 
   try {
     await mongoose.connect(MONGO, {
-      dbName: "matrepo",
+      dbName: "academicResourceDB",
     });
   } catch (error) {
     console.error("MongoDB connection error:", error);
