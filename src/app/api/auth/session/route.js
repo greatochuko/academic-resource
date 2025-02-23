@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
   try {
     const userId = request.headers.get("Authorization")?.split(" ")[1];
-    console.log({ userId });
 
     if (!userId || userId === "undefined") {
       return NextResponse.json(

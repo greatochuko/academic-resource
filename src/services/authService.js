@@ -13,7 +13,6 @@ export async function getSession() {
 
     return { error: null, user: data.user };
   } catch (error) {
-    console.log("Error getting session: ", error.message);
     return { error: error.message, user: null };
   }
 }
