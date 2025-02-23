@@ -318,8 +318,8 @@ export const courses = [
     ],
   },
   {
-    id: "csc-339",
-    name: "CSC 339",
+    id: "csc-329",
+    name: "CSC 329",
     class: "300L Second Semester",
     materials: [
       {
