@@ -21,7 +21,7 @@ export default function AddMaterialModal({ closeModal }) {
     if (cannotSubmit) return;
 
     const classLevel = level + " " + semester;
-    console.log({ file: fileLink, fileName, fileType, classLevel });
+    // console.log({ file: fileLink, fileName, fileType, classLevel });
 
     return;
 
@@ -45,13 +45,11 @@ export default function AddMaterialModal({ closeModal }) {
       setErr(true);
       console.log(error);
     }
-    // console.log('Form data submitted:', formData);
-    // Add your form submission logic here
   }
 
   function handleFileUpload(e) {
     const file = e.target.files[0];
-    console.log(file);
+    // console.log(file);
   }
 
   return (
