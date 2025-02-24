@@ -4,18 +4,19 @@ import styles from "@/styles/LogoutButton.module.css";
 import { useRouter } from "next/navigation";
 import { refreshData } from "@/actions/authActions";
 
-export default function LogoutButton() {
+export default function LogoutButton({ type }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const router = useRouter();
 
   async function handleLogout() {
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/logout");
+      if (type === "admin") {
+        await fetch("/api/auth/admin/logout");
+      } else {
+        await fetch("/api/auth/logout");
+      }
       await refreshData();
-      router.push("/login");
       setOpen(false);
     } catch (error) {
       console.log(error.message);

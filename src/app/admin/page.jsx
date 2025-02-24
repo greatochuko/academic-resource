@@ -2,10 +2,18 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import AddMaterialButton from "@/components/AddMaterialButton";
+import { getAdminSession } from "@/services/authServices";
+import AdminLoginForm from "@/components/AdminLoginForm";
 
 const materials = [];
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const { user } = await getAdminSession();
+
+  if (!user) {
+    return <AdminLoginForm />;
+  }
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>ADMIN DASHBOARD</h1>

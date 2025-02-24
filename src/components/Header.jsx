@@ -6,7 +6,7 @@ import styles from "@/styles/Header.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Header({ user }) {
+export default function Header({ user, adminUser }) {
   const pathname = usePathname();
 
   return (
@@ -15,15 +15,16 @@ export default function Header({ user }) {
         <Link href={"/"}>Academic Resource</Link>
       </h1>
       <div className={styles.authLinks}>
-        {user ? (
-          <LogoutButton />
-        ) : (
+        {(user && !pathname.startsWith("/admin")) ||
+        (adminUser && pathname.startsWith("/admin")) ? (
+          <LogoutButton
+            type={pathname.startsWith("/admin") ? "admin" : undefined}
+          />
+        ) : pathname.startsWith("/admin") ? null : (
           <>
             <Link
               href="/register"
-              className={[pathname === "/register" ? styles.active : ""].join(
-                " "
-              )}
+              className={pathname === "/register" ? styles.active : ""}
             >
               Register
             </Link>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getSession } from "./services/authService";
+import { getSession } from "./services/authServices";
 
 export async function middleware(req) {
   const { user } = await getSession();

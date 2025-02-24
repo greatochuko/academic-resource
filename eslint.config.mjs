@@ -14,6 +14,8 @@ const eslintConfig = [
   {
     rules: {
       "no-unused-vars": "warn",
+      "no-console": "warn",
+      "prettier/prettier": "error",
     },
   },
 ];

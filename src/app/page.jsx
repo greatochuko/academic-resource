@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { getSession } from "@/services/authService";
+import { getSession } from "@/services/authServices";
 import HomepageMain from "@/components/HomepageMain";
 
 export default async function Home() {
